@@ -111,6 +111,10 @@ if df is not None:
     ax3.set_xlabel("Jam (0-23)")
     st.pyplot(fig3)
 
+    # Simpan hasil clustering ke file CSV
+    agg.to_csv("clustered_devices.csv", index=False)
+    st.success("📁 Hasil clustering disimpan sebagai `clustered_devices.csv`")
+
     st.markdown("📌 *Cluster dapat diinterpretasikan sebagai pola konsumsi perangkat, misalnya:*")
     st.markdown("- **Cluster 0:** Penggunaan tinggi (mungkin AC, oven, dsb.)")
     st.markdown("- **Cluster 1:** Penggunaan sedang (TV, kulkas)")
