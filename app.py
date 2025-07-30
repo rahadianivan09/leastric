@@ -77,6 +77,16 @@ if df is not None:
     future = model.make_future_dataframe(periods=7)
     forecast = model.predict(future)
 
+      # Simpan forecasting sebagai CSV
+    forecast_result = forecast[["ds", "yhat"]]
+    csv_forecast = forecast_result.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="⬇️ Download Hasil Forecasting (7 Hari ke Depan)",
+        data=csv_forecast,
+        file_name="forecast.csv",
+        mime="text/csv"
+    )
+
     # Plot
     forecast_plot = forecast[["ds", "yhat"]].set_index("ds")[-14:]
     fig2, ax2 = plt.subplots(figsize=(10, 5))
