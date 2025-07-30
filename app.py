@@ -115,6 +115,15 @@ if df is not None:
     agg.to_csv("clustered_devices.csv", index=False)
     st.success("📁 Hasil clustering disimpan sebagai `clustered_devices.csv`")
 
+      # Tombol download file hasil clustering
+    csv = agg.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="⬇️ Download Hasil Clustering",
+        data=csv,
+        file_name="clustered_devices.csv",
+        mime="text/csv"
+    )
+
     st.markdown("📌 *Cluster dapat diinterpretasikan sebagai pola konsumsi perangkat, misalnya:*")
     st.markdown("- **Cluster 0:** Penggunaan tinggi (mungkin AC, oven, dsb.)")
     st.markdown("- **Cluster 1:** Penggunaan sedang (TV, kulkas)")
