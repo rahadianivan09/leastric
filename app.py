@@ -21,6 +21,9 @@ from sklearn.metrics import mean_absolute_error
 import seaborn as sns
 
 st.set_page_config(page_title="Leastric Dashboard", layout="wide")
+# Tambahan meta tag untuk verifikasi Dicoding
+st.markdown('<meta name="dicoding:email" content="ivanrahadian09@gmail.com">', unsafe_allow_html=True)
+
 st.title("🔌 Leastric - Energy Monitoring")
 
 # Upload & dummy data toggle
